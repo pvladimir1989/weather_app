@@ -18,36 +18,31 @@ WEATHER_KEY = os.getenv('WEATHER_KEY')
 def index(request):
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=' + str(WEATHER_KEY)
 
-    city = 'Tokyo'
-    r = requests.get(url.format(city)).json()
+    cities = ['Novosibirsk', 'Saint Petersburg', 'Delhi']
 
-    # if request.method == 'POST':
-    #     form = CityForm(request.POST)
-    #     form.save()
+    weather_data = []
 
-    # form = CityForm()
+    for city in cities:
+        r = requests.get(url.format(city)).json()
 
-    # cities = City.objects.all()
-    # weather_data = []
+        city_weather = {
+            'city': city,
+            'temperature': r['main']['temp'],
+            'longitude': r['coord']['lon'],
+            'latitude': r['coord']['lat'],
+            'time': r['dt'],
+        }
 
-    # for city in cities:
-    #     r = requests.get(url.format(city)).json()
+        weather_data.append(city_weather)
+        print(weather_data)
 
-    city_weather = {
-        'city': city,
-        'temperature': r['main']['temp'],
-        'longitude': r['coord']['lon'],
-        'latitude': r['coord']['lat'],
-        'time': r['dt'],
-    }
+        City.objects.create(city=city_weather['city'],
+                            temperature=city_weather['temperature'],
+                            longitude=city_weather['longitude'],
+                            latitude=city_weather['latitude'],
+                            time=datetime.fromtimestamp(city_weather['time']))
 
-    City.objects.create(city=city_weather['city'],
-                        temperature=city_weather['temperature'],
-                        longitude=city_weather['longitude'],
-                        latitude=city_weather['latitude'],
-                        time=datetime.fromtimestamp(city_weather['time']))
-
-    context = {'weather_data': city_weather}
+    context = {'weather_data': weather_data}
     return render(request, 'weather.html', context)
 
 

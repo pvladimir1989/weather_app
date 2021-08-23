@@ -7,23 +7,35 @@
 <body>
 
 <div>Город
-    {{ weather_data.city}}
+    {% for w in weather_data %}
+        {{ w.city }}
+    {% endfor %}
+
+
 </div>
 <div>
     Время
-    {{ weather_data.time}}
+        {% for w in weather_data %}
+        {{ w.time }}
+    {% endfor %}
 </div>
 <div>
     Долгота
-    {{ weather_data.longitude}}
+        {% for w in weather_data %}
+        {{ w.longitude }}
+    {% endfor %}
 </div>
 <div>
     Широта
-    {{ weather_data.latitude}}
+    {% for w in weather_data %}
+        {{ w.latitude }}
+    {% endfor %}
 </div>
 <div>
     Температура
-    {{ weather_data.temperature}}
+    {% for w in weather_data %}
+        {{ w.temperature }}
+    {% endfor %}
 </div>
 
 
