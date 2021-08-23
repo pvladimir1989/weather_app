@@ -5,15 +5,14 @@ import requests
 from django.shortcuts import render
 from .models import City
 
+WEATHER_KEY = os.getenv('WEATHER_KEY')
 
-# from .forms import CityForm
 
 def index(request):
-    WEATHER_KEY = os.getenv('WEATHER_KEY', default='Foo')
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid={WEATHER_KEY}'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=' + str(WEATHER_KEY)
+
     city = 'Tokyo'
     r = requests.get(url.format(city)).json()
-    print(url)
 
     # if request.method == 'POST':
     #     form = CityForm(request.POST)
@@ -22,7 +21,7 @@ def index(request):
     # form = CityForm()
 
     # cities = City.objects.all()
-    weather_data = []
+    # weather_data = []
 
     # for city in cities:
     #     r = requests.get(url.format(city)).json()

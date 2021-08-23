@@ -11,6 +11,7 @@ services:
       - POSTGRES_DB=${BACKEND_DB_NAME}
       - POSTGRES_USER=${BACKEND_DB_USER}
       - POSTGRES_PASSWORD=${BACKEND_DB_PASSWORD}
+      - WEATHER_KEY=${WEATHER_KEY}
 
   web:
     build: ./weather
@@ -28,6 +29,7 @@ services:
       - BACKEND_DB_PASSWORD=${BACKEND_DB_PASSWORD}
       - BACKEND_DB_HOST=${BACKEND_DB_HOST}
       - BACKEND_DB_PORT=${BACKEND_DB_PORT}
+      - WEATHER_KEY=${WEATHER_KEY}
 
     depends_on:
       - db
