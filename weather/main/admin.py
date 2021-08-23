@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from main.models import City
+
+
+class CityAdmin(admin.ModelAdmin):
+    list_display = ('city', 'time', 'longitude', 'latitude', 'temperature')
+
+
+admin.site.register(City, CityAdmin)
