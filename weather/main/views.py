@@ -50,7 +50,7 @@ class CityViewSet(ModelViewSet):
     queryset = City.objects.all()
     serializer_class = CitySerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     filter_fields = ['city']
     search_fields = ['city', 'temperature']
     ordering_fields = ['temperature']
