@@ -1,5 +1,6 @@
 # weather_app
 Для запуска приложения:
+
 1.git clone https://github.com/pvladimir1989/weather_app.git
 
 2.В корне проекта weather_app меняем название файла example.env на .env
