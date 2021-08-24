@@ -1,0 +1,16 @@
+#django key
+SECRET_KEY="django-insecure-9h+f=h7e8nwnu^*b*rp=oxb1rofl=b&u=-k^@+d(s@p1e4=%fx"
+
+#django docker
+BACKEND_DB_ENGINE=postgresql_psycopg2
+BACKEND_DB_NAME=postgres
+BACKEND_DB_USER=postgres
+BACKEND_DB_PASSWORD=123456
+BACKEND_DB_HOST=db
+BACKEND_DB_PORT=5432
+
+#docker postgres
+PG_PORT=5432
+POSTGRES_PASSWORD=123456
+
+WEATHER_KEY=12e5ff8f3f89d015e050dbdab7b7655f

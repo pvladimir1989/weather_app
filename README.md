@@ -2,28 +2,7 @@
 Для запуска приложения:
 1.git clone https://github.com/pvladimir1989/weather_app.git
 
-2.В папке weather_app создаем файл .env и вставляем туда ключи
-
-SECRET_KEY="django-insecure-9h+f=h7e8nwnu^*b*rp=oxb1rofl=b&u=-k^@+d(s@p1e4=%fx"
-
-BACKEND_DB_ENGINE=postgresql_psycopg2
-
-BACKEND_DB_NAME=postgres
-
-BACKEND_DB_USER=postgres
-
-BACKEND_DB_PASSWORD=123456
-
-BACKEND_DB_HOST=db
-
-BACKEND_DB_PORT=5432
-
-PG_PORT=5432
-
-POSTGRES_PASSWORD=123456
-
-WEATHER_KEY=12e5ff8f3f89d015e050dbdab7b7655f
-
+2.В корне проекта weather_app меняем название файла example.env на .env
 
 3.Устанавливаем Docker
 
